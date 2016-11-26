@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Yoshita Arora</title>
+</head>
+
+<body>
+	<div>
+        <h1><a href="">My Projects</a></h1>
+    </div>
+    <br/>
+    {% for project in projects %}
+    	<div>
+    		<h1><a href="">{{ project.title }}</a></h1>
+    		<p>{{ project.text|linebreaksbr }}</p>
+    		<p style="margin-right: 10px;">published: {{ project.published_date }}</p>
+    		<br/>
+    	</div>
+    {% endfor %}
+    
+</body>
+</html>
