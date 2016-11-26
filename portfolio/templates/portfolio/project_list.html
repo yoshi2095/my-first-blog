@@ -1,23 +1,14 @@
-<!DOCTYPE html>
-<html>
+{% extends 'portfolio/base.html' %}
 
-<head>
-	<title>Yoshita Arora</title>
-</head>
-
-<body>
-	<div>
-        <h1><a href="">My Projects</a></h1>
-    </div>
-    <br/>
-    {% for project in projects %}
-    	<div>
-    		<h1><a href="">{{ project.title }}</a></h1>
-    		<p>{{ project.text|linebreaksbr }}</p>
-    		<p style="margin-right: 10px;">published: {{ project.published_date }}</p>
-    		<br/>
-    	</div>
-    {% endfor %}
-    
-</body>
-</html>
+{% block content %}
+	{% for project in projects %}
+		<div class="project">
+			<h1><a href="{% url 'project_detail' pk=project.pk %}">{{ project.title }}</a></h1>
+			<p>{{ project.text|truncatewords:40 }}</p>
+			<div class="date">
+				<p>published: {{ project.published_date }}</p>
+			</div>
+			<br/>
+		</div>
+	{% endfor %}
+{% endblock %}
