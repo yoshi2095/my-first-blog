@@ -11,10 +11,10 @@
 
 <body>
 	<div class="page-header">
-		{% if user.authenticated %}
+		{% if user.is_authenticated %}
 		<a href="{% url 'project_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-        <h1><a href="{% url 'project_list' %}">My Projects</a></h1>
         {% endif %}
+        <h1><a href="{% url 'project_list' %}">My Projects</a></h1>
     </div>
     <br/>
     <div class="content container">
