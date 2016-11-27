@@ -11,7 +11,10 @@
 
 <body>
 	<div class="page-header">
-        <h1><a href="">My Projects</a></h1>
+		{% if user.authenticated %}
+		<a href="{% url 'project_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+        <h1><a href="{% url 'project_list' %}">My Projects</a></h1>
+        {% endif %}
     </div>
     <br/>
     <div class="content container">

@@ -3,6 +3,7 @@
 	
 	<div class="project">
 
+		
 		<h1>{{ project.title }}</h1>
 		
 		<p>{{ project.text|linebreaksbr }}</p>
@@ -11,6 +12,9 @@
 		<div class="date">
 			{{ project.published_date }}			
 		</div>
+		{% endif %}
+		{% if user.authenticated %}
+		<a class="btn btn-default" href="{% url 'project_edit' pk=project.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
 		{% endif %}
 
 	</div>
