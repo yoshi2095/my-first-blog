@@ -5,11 +5,7 @@
 		<div class="project">
 			<h1><a href="{% url 'project_detail' pk=project.pk %}">{{ project.title }}</a></h1>
 			<p>{{ project.text|truncatewords:40 }}</p>
-			<div class="date">
-				<p>published: {{ project.published_date }}</p>
-			</div>
-			<a href="{% url 'project_detail' pk=project.pk %}">Comments: {{ project.approved_comments.count }}</a>
-			<br/>
+			<p class="date"> created: {{ project.created_date|date:'d-m-Y' }}</p>
 		</div>
 	{% endfor %}
 {% endblock %}
