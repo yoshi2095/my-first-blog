@@ -4,12 +4,11 @@
 	{% for project in projects %}
 		<div class="project">
 			<h1><a href="{% url 'project_detail' pk=project.pk %}">{{ project.title }}</a></h1>
-			<p>{{ project.text|truncatewords:40 }}</p>
-			<div class="date">
-				<p>published: {{ project.published_date }}</p>
-			</div>
-			<a href="{% url 'project_detail' pk=project.pk %}">Comments: {{ project.approved_comments.count }}</a>
-			<br/>
+			<p style="color: #2f4f4f;"><i>{{ project.text|truncatewords:40 }}</i></p>
+			<br>
+			<p style="color: #000;"><i><b>published: {{ project.published_date }}</b></i>
+			<span><a style="color: #000; float: right;" href="{% url 'project_detail' pk=project.pk %}"><i><b>Comments: {{ project.approved_comments.count }}</b></i></a></span></p>
+			<hr style=" width: 100%; height:2px; background-color: #a9a9a9; border: none;">
 		</div>
 	{% endfor %}
 {% endblock %}
