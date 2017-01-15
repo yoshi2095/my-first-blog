@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .models import *
 from .forms import *
+from django.contrib import messages
 
 # Create your views here.
 
@@ -38,7 +39,7 @@ def project_edit(request, pk):
 			project.author = request.user
 			project.published_date = timezone.now()
 			project.save()
-			return redirect('project_detail', pk=project.pk)
+			return redirect('thanks', pk=project.pk)
 	else:
 		form=ProjectForm(instance=project)
 	return render(request, 'portfolio/project_edit.html', {'form':form})
@@ -68,6 +69,7 @@ def add_comment_to_project(request,pk):
 			comment = form.save(commit=False)
 			comment.post = post
 			comment.save()
+			messages.success(request,'Thanks :D ! Your response has been submitted. It will be displayed once approved by the author.')
 			return redirect('project_detail', pk=pk)
 	else:
 		form=CommentForm()
@@ -85,5 +87,15 @@ def comment_remove(request, pk):
 	post_pk = comment.post.pk
 	comment.delete()
 	return redirect('project_detail', pk=post_pk)
+
+def about_me(request):
+	return render(request,'portfolio/about_me.html')
+
+#def thanks(request,pk):
+#	project = get_object_or_404(Project, pk=pk)
+#	return render(request, 'portfolio/thanks.html', {'project':project})
+
+	
+
 
 

@@ -5,6 +5,7 @@
 	<form method="POST" class="project-form">
 		{% csrf_token %}
 		{{ form.as_p }}
-		<button type="submit" class="save btn btn-default">Send</button>
+		<!--<a id="myBtn" class="save btn btn-default">Send</a>-->
+		<button id="myBtn" type="submit" class="save btn btn-default">Send</button>
 	</form>
 {% endblock %}
