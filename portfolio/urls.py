@@ -13,5 +13,4 @@ urlpatterns = [
 	url(r'^comment/(?P<pk>\d+)/approve/$', views.comment_approve, name='comment_approve'),
 	url(r'^comment/(?P<pk>\d+)/remove/$', views.comment_remove, name='comment_remove'),
 	url(r'^aboutme/$', views.about_me, name='about_me'),
-	#url(r'^thanks/$', views.thanks,name='thanks'),
 ]

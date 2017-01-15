@@ -39,7 +39,7 @@ def project_edit(request, pk):
 			project.author = request.user
 			project.published_date = timezone.now()
 			project.save()
-			return redirect('thanks', pk=project.pk)
+			return redirect('project_detail', pk=project.pk)
 	else:
 		form=ProjectForm(instance=project)
 	return render(request, 'portfolio/project_edit.html', {'form':form})
